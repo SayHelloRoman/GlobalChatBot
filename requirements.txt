@@ -1,0 +1,4 @@
+discord.py==1.7.1
+discord-py-slash-command==1.1.1
+aasyncpg==0.22.0
+
