@@ -3,6 +3,17 @@ import asyncio
 import asyncpg
 import json
 
+
+def one_pool(cls):
+    instances = {}
+    def getinstance():
+        if cls not in instances:
+            instances[cls] = cls()
+        return instances[cls]
+    return getinstance
+
+
+@one_pool
 class DataBase:
     async def init(self):
         with open("config.json") as f:
