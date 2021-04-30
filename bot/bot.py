@@ -20,6 +20,7 @@ async def on_message(message):
             channel = bot.get_channel(i)
             webhook = await channel.create_webhook(name="Mazafacer")
             await webhook.send(content=message.content, username=message.author.name, avatar_url=message.author.avatar_url, wait=True)
+            await webhook.delete()
 
 @slash.slash(name="set", guild_ids=[813735804030681199, 776525950681743410])
 async def set_channel(ctx: SlashContext, id_channel):
